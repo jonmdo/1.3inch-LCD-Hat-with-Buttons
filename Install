@@ -24,7 +24,7 @@ sudo apt install git
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi
 ./build debian
-mv debian-template/wiringpi_3.6_armhf.deb
+cd debian-template
 sudo apt install ./wiringpi_3.6_armhf.deb
 
 #LGPIO
