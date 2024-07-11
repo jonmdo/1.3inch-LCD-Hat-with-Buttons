@@ -28,6 +28,7 @@ cd debian-template
 sudo apt install ./wiringpi_3.6_armhf.deb
 
 #LGPIO
+cd
 wget https://github.com/joan2937/lg/archive/master.zip
 unzip master.zip
 cd lg-master
@@ -36,14 +37,15 @@ sudo make install
 sudo apt install python3-rpi-lgpio
 
 #Python
+cd
 sudo apt-get install python3-pip
 sudo apt-get install python3-pil
 sudo apt-get install python3-numpy
 sudo pip3 install spidev
 
 #DRIVERS
+cd
 sudo apt-get install cmake -y
-cd ~
 wget https://files.waveshare.com/upload/1/18/Waveshare_fbcp.zip
 unzip Waveshare_fbcp.zip
 cd Waveshare_fbcp/
