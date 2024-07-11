@@ -1,0 +1,76 @@
+1.3 Screen Install with Joystick and buttons.
+
+#Legacy Bullseye 32 Bit or Buster
+
+sudo raspi-config
+	#Enable SPI
+
+sudo apt update
+sudo apt upgrade
+
+#BCM2835
+wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
+tar zxvf bcm2835-1.71.tar.gz 
+cd bcm2835-1.71/
+sudo ./configure 
+sudo make
+sudo make check
+sudo make install
+
+#WiringPi
+sudo apt install git
+git clone https://github.com/WiringPi/WiringPi.git
+cd WiringPi
+./build debian
+mv debian-template/wiringpi_3.6_armhf.deb
+sudo apt install ./wiringpi_3.6_armhf.deb
+
+#LGPIO
+wget https://github.com/joan2937/lg/archive/master.zip
+unzip master.zip
+cd lg-master
+sudo make install
+#Raspberry Pi 5 
+sudo apt install python3-rpi-lgpio
+
+#Python
+sudo apt-get install python3-pip
+sudo apt-get install python3-pil
+sudo apt-get install python3-numpy
+sudo pip3 install spidev
+
+#DRIVERS
+sudo apt-get install cmake -y
+cd ~
+wget https://files.waveshare.com/upload/1/18/Waveshare_fbcp.zip
+unzip Waveshare_fbcp.zip
+cd Waveshare_fbcp/
+sudo chmod +x ./shell/*
+
+sudo ./shell/waveshare-1inch3
+
+#different screen sizes can be used.
+	#0.96inch LCD Module
+	sudo ./main 0.96
+	#1.14inch LCD Module
+	sudo ./main 1.14
+	#1.28inch LCD Module
+	sudo ./main 1.28
+	#1.3inch LCD Module
+	sudo ./main 1.3
+	#1.47inch LCD Module
+	sudo ./main 1.47
+	#1.54inch LCD Module
+	sudo ./main 1.54
+	#1.8inch LCD Module
+	sudo ./main 1.8
+	#2inch LCD Module
+	sudo ./main 2
+	#2.4inch LCD Module
+	sudo ./main 2.4
+
+sudo nano /boot/config.txt
+	#Add at end
+	gpio=17,22,18,13,26,5,19,6,20,21,23=pu
+
+sudo reboot
