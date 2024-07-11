@@ -33,8 +33,7 @@ wget https://github.com/joan2937/lg/archive/master.zip
 unzip master.zip
 cd lg-master
 sudo make install
-#Raspberry Pi 5 
-sudo apt install python3-rpi-lgpio
+
 
 #Python
 cd
